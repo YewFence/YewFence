@@ -13,6 +13,10 @@
 - SVG：重写 viewBox（无 viewBox 则补上），文件其余部分不动
 - PNG：裁剪内容后重新居中到正方形透明画布
 
+另外会剥掉 SVG 根标签的 width/height 固有尺寸属性：GitHub 渲染时，
+有固有尺寸的 SVG 会无视 <img height="48"> 按固有大小显示（1em→16px），
+剥掉后所有图标统一由 README 里的 height=48 控制。
+
 运行：./scripts/normalize_icons.py（或 uv run scripts/normalize_icons.py）
 注意：fetch_icons.py 重跑会还原官方原始文件，之后需要重新运行本脚本。
 """
@@ -90,6 +94,8 @@ def normalize_svg(path: pathlib.Path) -> str:
         new_tag = tag[: vb_m.start()] + new_vb + tag[vb_m.end() :]
     else:
         new_tag = tag[:-1].rstrip() + f" {new_vb}>"  # 插到 <svg ...> 末尾
+    # 剥掉固有宽高（见模块 docstring）
+    new_tag = re.sub(r'\s(?:width|height)="[^"]*"', "", new_tag)
     path.write_text(text.replace(tag, new_tag, 1), encoding="utf-8")
     return f"内容占比 {old_fill:.0%} -> {FRACTION:.0%}，{new_vb}"
 
