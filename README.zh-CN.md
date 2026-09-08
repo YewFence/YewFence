@@ -1,47 +1,48 @@
+
 <div align="center">
-	<h1>Hey there, YewFence here</h1>
-	<p><em>A leaf, a cloud, a maple tree — grown into a fence. YewFence echoes my Chinese name 叶云枫 (Yè Yúnfēng)</em></p>
-	<p>Coding makes me happy (except when debugging)</p>
-	<p><sub>English · <a href="README.zh-CN.md">简体中文</a></sub></p>
+	<h1>你好啊，这里是云枫</h1>
+	<p><em>一片叶，一朵云，一棵枫树，围成一道栅栏</em></p>
+	<p><sub><a href="README.md">English</a> · 简体中文</sub></p>
+	<p>编程使我快乐（调试的时候除外）</p>
 </div>
 
 
 ---
 
-## 🟪🌳 About Me
+## 🟪🌳 关于我
 
-**A beginner & a college student**, exploring whatever catches my curiosity:
-- 💻 **Linux user** — open source is the way
-- 🔗 **Amateur ops** — finding needles in log haystacks: `gcx logs query '{service_name="Traefik"} | rg Error | sort | tail -15`
-- ⌨️ **Terminal enthusiast** — a believer in the Unix philosophy: do one thing, and do it well
-- ⌛ **Vibe coding** — *“Good afternoon, Yunfeng. What can I do for you?”*
-- 🪵 **True form** — a fence of yew wood: can't keep curiosity out, but keeps the boundaries clear
+**初学者 & 大学生**，正探索着感兴趣的一切：
+- 💻 **Linux 用户** —— 开源软件是好文明
+- 🔗 **业余运维** —— 在日志里大海捞针：`gcx logs query '{service_name="Traefik"} | rg Error | sort | tail -15`
+- ⌨️ **终端爱好者** —— 信奉 Unix 哲学：做好一件事
+- ⌛ **Vibe Coding** —— *“下午好，云枫，有什么我可以帮到你的？”*
+- 🪵 **本体** —— 一道紫杉木栅栏，拦不住好奇心，但划得清边界
 
 ---
 
-## 🛠️ Tech Arsenal
+## 🛠️ 技术武器库
 
-### **Languages & Frameworks**
+### **编程语言 & 框架**
 <img src="assets/icons/python.svg" alt="Python" height="48"> <img src="assets/icons/go.svg" alt="Go" height="48"> <img src="assets/icons/rust.svg" alt="Rust" height="48"> <img src="assets/icons/nodejs.svg" alt="Node.js" height="48"> <img src="assets/icons/markdown.svg" alt="Markdown" height="48"> <img src="assets/icons/vue.svg" alt="Vue" height="48"> <img src="assets/icons/vite.svg" alt="Vite" height="48"> <img src="assets/icons/react.svg" alt="React" height="48"> <img src="assets/icons/flask.svg" alt="Flask" height="48">
 
-### **Dev Tools**
+### **开发工具**
 <img src="assets/icons/git.svg" alt="Git" height="48"> <img src="assets/icons/jj.svg" alt="Jujutsu" height="48"> <img src="assets/icons/github.svg" alt="GitHub" height="48"> <img src="assets/icons/forgejo.svg" alt="Forgejo" height="48"> <img src="assets/icons/pnpm.svg" alt="pnpm" height="48"> <img src="assets/icons/uv.svg" alt="uv" height="48"> <img src="assets/icons/mise.svg" alt="mise" height="48"> <img src="assets/icons/zsh.svg" alt="Zsh" height="48"> <img src="assets/icons/tmux.svg" alt="tmux" height="48"> <img src="assets/icons/zellij.png" alt="Zellij" height="48"> <img src="assets/icons/neovim.svg" alt="Neovim" height="48"> <img src="assets/icons/zed.svg" alt="Zed" height="48">
 
-### **Infrastructure**
+### **基础设施**
 <img src="assets/icons/fedora.svg" alt="Fedora" height="48"> <img src="assets/icons/debian.svg" alt="Debian" height="48"> <img src="assets/icons/nginx.svg" alt="Nginx" height="48"> <img src="assets/icons/docker.svg" alt="Docker" height="48"> <img src="assets/icons/traefik.svg" alt="Traefik" height="48"> <img src="assets/icons/cloudflare.svg" alt="Cloudflare" height="48"> <img src="assets/icons/opentofu.svg" alt="OpenTofu" height="48"> <img src="assets/icons/tailscale.svg" alt="Tailscale" height="48"> <img src="assets/icons/grafana.svg" alt="Grafana" height="48"> <img src="assets/icons/openapi.svg" alt="OpenAPI" height="48"> <img src="assets/icons/postgresql.svg" alt="PostgreSQL" height="48"> <img src="assets/icons/sqlite.svg" alt="SQLite" height="48"> <img src="assets/icons/rclone.svg" alt="rclone" height="48">
 
-### **AI Ecosystem**
+### **AI 生态**
 <img src="assets/icons/claude.svg" alt="Claude" height="48"> <img src="assets/icons/openai.svg" alt="OpenAI" height="48"> <img src="assets/icons/deepseek.svg" alt="DeepSeek" height="48"> <img src="assets/icons/kimi.svg" alt="Kimi" height="48"> <img src="assets/icons/zhipu.svg" alt="Zhipu" height="48"> <img src="assets/icons/pi.svg" alt="pi" height="48"> <img src="assets/icons/codex.svg" alt="Codex" height="48"> <img src="assets/icons/context7.svg" alt="Context7" height="48"> <img src="assets/icons/tavily.svg" alt="Tavily" height="48">
 
-> So much left to learn, so far yet to go
+> 要学的东西还有很多，要走的路还有很长
 
 ---
 
-## 🤗 Currently Tinkering
-- Thinking in [Komodo](https://komo.do/)
-- Strolling through [A Tour of Go](https://go.dev/tour/)
-- Keys hang on separate hooks, privileges are given out sparingly, services get dragged in for regular check-ups, and strange traffic is guilty until proven innocent — a defense line of my own making
-- In development, [mise](https://mise.jdx.dev) puts every tool in its place; in production, [containers](https://github.com/docker/compose) draw the boundaries
-- One foot into the world of [Rust](https://beatai.org/rust-course) — progress: 0
+## 🤗 正在鼓捣
+- 像 [Komodo](https://komo.do/) 一样思考
+- 跟着 [A Tour of Go](https://go.dev/tour/) 四处逛逛
+- 钥匙分开挂，权限抠着给，定期拉去做体检，陌生流量先怀疑三分 —— 自己的防线自己筑
+- 开发时 [mise](https://mise.jdx.dev) 会让每件工具各就各位，生产环境用[容器](https://github.com/docker/compose)界定边界
+- 一只脚踏进了 [Rust](https://beatai.org/rust-course) 的世界，进度：0
 
-> *I want to stay by everyone's side — from the past, walking into tomorrow together*
+> *我想留在大家身边，从过去，一同迈向明天*
