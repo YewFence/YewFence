@@ -22,19 +22,16 @@
 ## 🛠️ 技术武器库
 
 ### **编程语言 & 框架**
-<a href="https://skillicons.dev">
-	<img src="https://skillicons.dev/icons?i=py,md,flask,html,css,js,vue,vite,cpp,nodejs&perline=7" />
-</a>
+<img src="assets/icons/python.svg" alt="Python" height="48"> <img src="assets/icons/go.svg" alt="Go" height="48"> <img src="assets/icons/rust.svg" alt="Rust" height="48"> <img src="assets/icons/nodejs.svg" alt="Node.js" height="48"> <img src="assets/icons/markdown.svg" alt="Markdown" height="48"> <img src="assets/icons/vue.svg" alt="Vue" height="48"> <img src="assets/icons/vite.svg" alt="Vite" height="48"> <img src="assets/icons/react.svg" alt="React" height="48"> <img src="assets/icons/flask.svg" alt="Flask" height="48">
 
 ### **开发工具**
-<a href="https://skillicons.dev">
-	<img src="https://skillicons.dev/icons?i=git,github,docker,debian,nginx,pnpm,sqlite" />
-</a>
+<img src="assets/icons/git.svg" alt="Git" height="48"> <img src="assets/icons/jj.svg" alt="Jujutsu" height="48"> <img src="assets/icons/github.svg" alt="GitHub" height="48"> <img src="assets/icons/forgejo.svg" alt="Forgejo" height="48"> <img src="assets/icons/pnpm.svg" alt="pnpm" height="48"> <img src="assets/icons/uv.svg" alt="uv" height="48"> <img src="assets/icons/mise.svg" alt="mise" height="48"> <img src="assets/icons/zsh.svg" alt="Zsh" height="48"> <img src="assets/icons/tmux.svg" alt="tmux" height="48"> <img src="assets/icons/zellij.png" alt="Zellij" height="48"> <img src="assets/icons/neovim.svg" alt="Neovim" height="48"> <img src="assets/icons/zed.svg" alt="Zed" height="48">
 
-### **开发环境**
-<a href="https://skillicons.dev">
-	<img src="https://skillicons.dev/icons?i=vscode,windows" />
-</a>
+### **基础设施**
+<img src="assets/icons/fedora.svg" alt="Fedora" height="48"> <img src="assets/icons/debian.svg" alt="Debian" height="48"> <img src="assets/icons/nginx.svg" alt="Nginx" height="48"> <img src="assets/icons/docker.svg" alt="Docker" height="48"> <img src="assets/icons/traefik.svg" alt="Traefik" height="48"> <img src="assets/icons/cloudflare.svg" alt="Cloudflare" height="48"> <img src="assets/icons/opentofu.svg" alt="OpenTofu" height="48"> <img src="assets/icons/tailscale.svg" alt="Tailscale" height="48"> <img src="assets/icons/grafana.svg" alt="Grafana" height="48"> <img src="assets/icons/openapi.svg" alt="OpenAPI" height="48"> <img src="assets/icons/postgresql.svg" alt="PostgreSQL" height="48"> <img src="assets/icons/sqlite.svg" alt="SQLite" height="48"> <img src="assets/icons/rclone.svg" alt="rclone" height="48">
+
+### **AI 生态**
+<img src="assets/icons/claude.svg" alt="Claude" height="48"> <img src="assets/icons/openai.svg" alt="OpenAI" height="48"> <img src="assets/icons/deepseek.svg" alt="DeepSeek" height="48"> <img src="assets/icons/kimi.svg" alt="Kimi" height="48"> <img src="assets/icons/zhipu.svg" alt="Zhipu" height="48"> <img src="assets/icons/pi.svg" alt="pi" height="48"> <img src="assets/icons/codex.svg" alt="Codex" height="48"> <img src="assets/icons/context7.svg" alt="Context7" height="48"> <img src="assets/icons/tavily.svg" alt="Tavily" height="48">
 
 > 要学的东西还有很多，要走的路还有很长
 
