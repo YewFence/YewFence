@@ -29,7 +29,6 @@ PLAIN: dict[str, str] = {
     # devicon（original 彩色变体，GitHub master 分支）
     "python.svg": f"{DV}/python/python-original.svg",
     "vue.svg": f"{DV}/vuejs/vuejs-original.svg",
-    "vite.svg": f"{DV}/vite/vite-original.svg",
     "react.svg": f"{DV}/react/react-original.svg",
     "nodejs.svg": f"{DV}/nodejs/nodejs-original.svg",
     "git.svg": f"{DV}/git/git-original.svg",
@@ -56,6 +55,7 @@ PLAIN: dict[str, str] = {
     "codex.svg": f"{LOBE}/codex-color.svg",
     "tavily.svg": f"{LOBE}/tavily-color.svg",
     # 官方仓库
+    "vite.svg": "https://raw.githubusercontent.com/vitejs/vite/main/docs/public/logo-without-border.svg",
     "uv.svg": "https://raw.githubusercontent.com/astral-sh/uv/main/docs/assets/logo-letter.svg",
     "jj.svg": "https://raw.githubusercontent.com/jj-vcs/jj/main/docs/images/jj-logo.svg",
     "rclone.svg": "https://raw.githubusercontent.com/rclone/rclone/master/graphics/logo/svg/logo_symbol_color.svg",
@@ -72,7 +72,7 @@ RASTER: dict[str, tuple[str, int]] = {
 }
 
 # 需要随主题反转的前景 fill 正则：黑系 / 白色
-FG_DARK = r"(?:black|#000000|#000|#141414|#010101|currentColor)"
+FG_DARK = r"(?:black|#000000|#000|#141414|#010101|#08060d|currentColor)"
 FG_LIGHT = r"(?:white|#ffffff|#fff)"
 
 # 黑色主体的单色图标 -> 改造 auto（浅黑深白）。
@@ -83,6 +83,8 @@ SINGLE: dict[str, str] = {
     "openai.svg": f"{LOBE}/openai.svg",
     "zed.svg": "https://raw.githubusercontent.com/zed-industries/zed/main/assets/images/zed_logo.svg",
     "tailscale.svg": "https://raw.githubusercontent.com/tailscale/tailscale/main/client/web/src/assets/icons/tailscale-icon.svg",
+    # vite+ 图标：渐变闪电不动，括号与加号（#08060d）随主题反转
+    "viteplus.svg": "https://raw.githubusercontent.com/voidzero-dev/vite-plus/main/docs/public/icon.svg",
 }
 
 # 白色主体的图标 -> 改造 auto（反转白色 fill，其余彩色路径保留）。
@@ -127,6 +129,8 @@ LICENSES: dict[str, str] = {
     "tailscale/tailscale": "BSD-3-Clause（代码）；logo 为商标",
     "upstash/context7": "MIT",
     "pi.dev": "商标",
+    "voidzero-dev/vite-plus": "MIT",
+    "vitejs/vite": "MIT",
     "rust-lang/rust-artwork": "CC-BY-4.0；logo 为 Rust Foundation 商标",
 }
 

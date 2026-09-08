@@ -42,7 +42,8 @@ Files are fetched and processed (theme-aware auto variants / dual-variant mergin
 | tmux.svg | https://raw.githubusercontent.com/devicons/devicon/master/icons/tmux/tmux-original.svg | MIT |
 | traefik.svg | https://raw.githubusercontent.com/devicons/devicon/master/icons/traefikproxy/traefikproxy-original.svg | MIT |
 | uv.svg | https://raw.githubusercontent.com/astral-sh/uv/main/docs/assets/logo-letter.svg | Apache-2.0 |
-| vite.svg | https://raw.githubusercontent.com/devicons/devicon/master/icons/vite/vite-original.svg | MIT |
+| vite.svg | https://raw.githubusercontent.com/vitejs/vite/main/docs/public/logo-without-border.svg | MIT |
+| viteplus.svg | https://raw.githubusercontent.com/voidzero-dev/vite-plus/main/docs/public/icon.svg | MIT |
 | vue.svg | https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg | MIT |
 | zed.svg | https://raw.githubusercontent.com/zed-industries/zed/main/assets/images/zed_logo.svg | GPL-3.0（代码）；logo 为商标 |
 | zellij.png | https://raw.githubusercontent.com/zellij-org/zellij/main/assets/logo.png | MIT |
