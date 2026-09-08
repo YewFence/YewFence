@@ -1,0 +1,43 @@
+python.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg
+vue.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg
+vite.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/vite/vite-original.svg
+react.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg
+nodejs.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg
+git.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg
+docker.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg
+debian.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/debian/debian-original.svg
+nginx.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg
+pnpm.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/pnpm/pnpm-original.svg
+sqlite.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg
+go.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg
+fedora.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/fedora/fedora-original.svg
+traefik.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/traefikproxy/traefikproxy-original.svg
+neovim.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/neovim/neovim-original.svg
+openapi.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/openapi/openapi-original.svg
+postgresql.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg
+cloudflare.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg
+grafana.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg
+zsh.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/zsh/zsh-original.svg
+forgejo.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/forgejo/forgejo-original.svg
+tmux.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/tmux/tmux-original.svg
+claude.svg	https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/claude-color.svg
+deepseek.svg	https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/deepseek-color.svg
+zhipu.svg	https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/zhipu-color.svg
+codex.svg	https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/codex-color.svg
+tavily.svg	https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/tavily-color.svg
+uv.svg	https://raw.githubusercontent.com/astral-sh/uv/main/docs/assets/logo-letter.svg
+jj.svg	https://raw.githubusercontent.com/jj-vcs/jj/main/docs/images/jj-logo.svg
+rclone.svg	https://raw.githubusercontent.com/rclone/rclone/master/graphics/logo/svg/logo_symbol_color.svg
+context7.svg	https://raw.githubusercontent.com/upstash/context7/master/public/context7-icon-green.svg
+pi.svg	https://pi.dev/logo-auto.svg
+markdown.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/markdown/markdown-original.svg
+flask.svg	https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg
+rust.svg	https://raw.githubusercontent.com/rust-lang/rust-artwork/main/logo/rust-logo-single-path.svg + https://raw.githubusercontent.com/rust-lang/rust-artwork/main/logo/rust-logo-white-outline.svg
+openai.svg	https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/openai.svg
+zed.svg	https://raw.githubusercontent.com/zed-industries/zed/main/assets/images/zed_logo.svg
+tailscale.svg	https://raw.githubusercontent.com/tailscale/tailscale/main/client/web/src/assets/icons/tailscale-icon.svg
+kimi.svg	https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/kimi-color.svg
+github.svg	https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/github-dark.svg + https://raw.githubusercontent.com/xandemon/developer-icons/main/icons/github-light.svg
+mise.svg	https://raw.githubusercontent.com/jdx/mise/main/docs/public/logo-light.svg + https://raw.githubusercontent.com/jdx/mise/main/docs/public/logo-dark.svg
+opentofu.svg	https://raw.githubusercontent.com/opentofu/brand-artifacts/main/symbol-only/transparent/SVG/on-light.svg + https://raw.githubusercontent.com/opentofu/brand-artifacts/main/symbol-only/transparent/SVG/on-dark.svg
+zellij.png	https://raw.githubusercontent.com/zellij-org/zellij/main/assets/logo.png
