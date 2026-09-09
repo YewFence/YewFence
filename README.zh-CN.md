@@ -94,3 +94,14 @@
 - 一只脚踏进了 [Rust](https://beatai.org/rust-course) 的世界，进度：0
 
 > *我想留在大家身边，从过去，一同迈向明天*
+
+---
+
+## Github 心跳
+
+<p align="center">
+  <a href="https://yewfence-github-pulse.vercel.app/">
+    <img src="https://yewfence-github-pulse.vercel.app//u/YewFence" width="520" height="190" alt="GitHub Pulse card, aura theme — live">
+  </a>
+</p>
+

@@ -93,3 +93,14 @@
 - One foot into the world of [Rust](https://beatai.org/rust-course) — progress: 0
 
 > *I want to stay by everyone's side — from the past, walking into tomorrow together*
+
+---
+
+## Github Pulse
+
+<p align="center">
+  <a href="https://yewfence-github-pulse.vercel.app/">
+    <img src="https://yewfence-github-pulse.vercel.app//u/YewFence" width="520" height="190" alt="GitHub Pulse card, aura theme — live">
+  </a>
+</p>
+
