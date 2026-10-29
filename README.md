@@ -37,17 +37,17 @@
 
 ### **Dev Tools**
 <p>
-<a href="https://github.com/git/git"><img src="assets/icons/git.svg" alt="Git" height="48"></a>
 <a href="https://github.com/jj-vcs/jj"><img src="assets/icons/jj.svg" alt="Jujutsu" height="48"></a>
+<a href="https://github.com/git/git"><img src="assets/icons/git.svg" alt="Git" height="48"></a>
 <a href="https://github.com/github"><img src="assets/icons/github.svg" alt="GitHub" height="48"></a>
 <a href="https://codeberg.org/forgejo/forgejo"><img src="assets/icons/forgejo.svg" alt="Forgejo" height="48"></a>
+<a href="https://github.com/jdx/mise"><img src="assets/icons/mise.svg" alt="mise" height="48"></a>
 <a href="https://github.com/pnpm/pnpm"><img src="assets/icons/pnpm.svg" alt="pnpm" height="48"></a>
 <a href="https://github.com/astral-sh/uv"><img src="assets/icons/uv.svg" alt="uv" height="48"></a>
-<a href="https://github.com/jdx/mise"><img src="assets/icons/mise.svg" alt="mise" height="48"></a>
 <a href="https://github.com/zsh-users/zsh"><img src="assets/icons/zsh.svg" alt="Zsh" height="48"></a>
+<a href="https://github.com/neovim/neovim"><img src="assets/icons/neovim.svg" alt="Neovim" height="48"></a>
 <a href="https://github.com/tmux/tmux"><img src="assets/icons/tmux.svg" alt="tmux" height="48"></a>
 <a href="https://github.com/zellij-org/zellij"><img src="assets/icons/zellij.png" alt="Zellij" height="48"></a>
-<a href="https://github.com/neovim/neovim"><img src="assets/icons/neovim.svg" alt="Neovim" height="48"></a>
 <a href="https://github.com/zed-industries/zed"><img src="assets/icons/zed.svg" alt="Zed" height="48"></a>
 </p>
 
@@ -55,26 +55,27 @@
 <p>
 <a href="https://fedoraproject.org"><img src="assets/icons/fedora.svg" alt="Fedora" height="48"></a>
 <a href="https://www.debian.org"><img src="assets/icons/debian.svg" alt="Debian" height="48"></a>
-<a href="https://github.com/nginx/nginx"><img src="assets/icons/nginx.svg" alt="Nginx" height="48"></a>
 <a href="https://github.com/moby/moby"><img src="assets/icons/docker.svg" alt="Docker" height="48"></a>
 <a href="https://github.com/traefik/traefik"><img src="assets/icons/traefik.svg" alt="Traefik" height="48"></a>
-<a href="https://www.cloudflare.com"><img src="assets/icons/cloudflare.svg" alt="Cloudflare" height="48"></a>
-<a href="https://github.com/opentofu/opentofu"><img src="assets/icons/opentofu.svg" alt="OpenTofu" height="48"></a>
-<a href="https://github.com/tailscale/tailscale"><img src="assets/icons/tailscale.svg" alt="Tailscale" height="48"></a>
-<a href="https://github.com/grafana/grafana"><img src="assets/icons/grafana.svg" alt="Grafana" height="48"></a>
-<a href="https://github.com/OAI/OpenAPI-Specification"><img src="assets/icons/openapi.svg" alt="OpenAPI" height="48"></a>
+<a href="https://github.com/nginx/nginx"><img src="assets/icons/nginx.svg" alt="Nginx" height="48"></a>
 <a href="https://www.postgresql.org"><img src="assets/icons/postgresql.svg" alt="PostgreSQL" height="48"></a>
 <a href="https://sqlite.org"><img src="assets/icons/sqlite.svg" alt="SQLite" height="48"></a>
 <a href="https://github.com/rclone/rclone"><img src="assets/icons/rclone.svg" alt="rclone" height="48"></a>
+<a href="https://www.cloudflare.com"><img src="assets/icons/cloudflare.svg" alt="Cloudflare" height="48"></a>
+<a href="https://github.com/tailscale/tailscale"><img src="assets/icons/tailscale.svg" alt="Tailscale" height="48"></a>
+<a href="https://github.com/grafana/grafana"><img src="assets/icons/grafana.svg" alt="Grafana" height="48"></a>
+<a href="https://github.com/opentofu/opentofu"><img src="assets/icons/opentofu.svg" alt="OpenTofu" height="48"></a>
+<a href="https://www.ansible.com"><img src="assets/icons/ansible.svg" alt="Ansible" height="48"></a>
+<a href="https://github.com/OAI/OpenAPI-Specification"><img src="assets/icons/openapi.svg" alt="OpenAPI" height="48"></a>
 </p>
 
 ### **AI Ecosystem**
 <p>
-<a href="https://claude.ai"><img src="assets/icons/claude.svg" alt="Claude" height="48"></a>
-<a href="https://openai.com"><img src="assets/icons/openai.svg" alt="OpenAI" height="48"></a>
-<a href="https://www.deepseek.com"><img src="assets/icons/deepseek.svg" alt="DeepSeek" height="48"></a>
 <a href="https://www.kimi.com"><img src="assets/icons/kimi.svg" alt="Kimi" height="48"></a>
 <a href="https://z.ai"><img src="assets/icons/zhipu.svg" alt="Zhipu" height="48"></a>
+<a href="https://www.deepseek.com"><img src="assets/icons/deepseek.svg" alt="DeepSeek" height="48"></a>
+<a href="https://claude.ai"><img src="assets/icons/claude.svg" alt="Claude" height="48"></a>
+<a href="https://openai.com"><img src="assets/icons/openai.svg" alt="OpenAI" height="48"></a>
 <a href="https://pi.dev"><img src="assets/icons/pi.svg" alt="pi" height="48"></a>
 <a href="https://github.com/openai/codex"><img src="assets/icons/codex.svg" alt="Codex" height="48"></a>
 <a href="https://github.com/upstash/context7"><img src="assets/icons/context7.svg" alt="Context7" height="48"></a>

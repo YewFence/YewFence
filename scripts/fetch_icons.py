@@ -60,6 +60,7 @@ PLAIN: dict[str, str] = {
     "cloudflare.svg": f"{DV}/cloudflare/cloudflare-original.svg",
     "grafana.svg": f"{DV}/grafana/grafana-original.svg",
     "zsh.svg": f"{DV}/zsh/zsh-original.svg",
+    "ansible.svg": f"{DV}/ansible/ansible-original.svg",
     "forgejo.svg": f"{DV}/forgejo/forgejo-original.svg",
     "tmux.svg": f"{DV}/tmux/tmux-original.svg",
     # lobe-icons（AI 组，color 变体）

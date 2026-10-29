@@ -5,6 +5,7 @@ Files are fetched and processed (theme-aware auto variants / dual-variant mergin
 
 | File | Source | License |
 | --- | --- | --- |
+| ansible.svg | https://raw.githubusercontent.com/devicons/devicon/master/icons/ansible/ansible-original.svg | MIT |
 | claude.svg | https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/claude-color.svg | MIT |
 | cloudflare.svg | https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg | MIT |
 | codex.svg | https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/codex-color.svg | MIT |
