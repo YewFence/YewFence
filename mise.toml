@@ -1,0 +1,11 @@
+[tasks.icons]
+description = "下载并归一化 README 图标（fetch + normalize）"
+run = "./scripts/fetch_icons.py && ./scripts/normalize_icons.py"
+
+[tasks.icons-fetch]
+description = "仅下载图标到上游最新版本（会覆盖归一化结果，需再跑 icons:normalize）"
+run = "./scripts/fetch_icons.py"
+
+[tasks.icons-normalize]
+description = "仅归一化图标视觉尺寸（幂等，重复运行无差异）"
+run = "./scripts/normalize_icons.py"

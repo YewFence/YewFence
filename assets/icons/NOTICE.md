@@ -29,7 +29,7 @@ Files are fetched and processed (theme-aware auto variants / dual-variant mergin
 | openai.svg | https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/openai.svg | MIT |
 | openapi.svg | https://raw.githubusercontent.com/devicons/devicon/master/icons/openapi/openapi-original.svg | MIT |
 | opentofu.svg | https://raw.githubusercontent.com/opentofu/brand-artifacts/main/symbol-only/transparent/SVG/on-light.svg + https://raw.githubusercontent.com/opentofu/brand-artifacts/main/symbol-only/transparent/SVG/on-dark.svg | 见仓库 LICENSE |
-| pi.svg | https://pi.dev/logo-auto.svg | 商标 |
+| pi.svg | https://pi.dev/logo.svg | 商标 |
 | pnpm.svg | https://raw.githubusercontent.com/devicons/devicon/master/icons/pnpm/pnpm-original.svg | MIT |
 | postgresql.svg | https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg | MIT |
 | python.svg | https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg | MIT |

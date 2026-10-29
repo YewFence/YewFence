@@ -1,4 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.11"
+# dependencies = ["pillow"]
+# ///
 """下载 profile README 图标到 assets/icons/。
 
 可重复运行：所有图标源均为官方仓库 raw 地址，重跑即更新到最新版本。
@@ -8,18 +12,28 @@
 - MERGE: 两个主题变体合并为单文件 auto SVG
 
 下载/改造后需再运行 normalize_icons.py 统一视觉尺寸。
+位图缩放（zellij.png）依赖的 Pillow 由 uv script 头部声明提供。
 """
 
 from __future__ import annotations
 
+import io
 import pathlib
+import random
 import re
+import time
 import urllib.request
+from collections.abc import Callable
+
+from PIL import Image
 
 OUT = pathlib.Path(__file__).resolve().parent.parent / "assets" / "icons"
 OUT.mkdir(parents=True, exist_ok=True)
 
 UA = {"User-Agent": "Mozilla/5.0 (YewFence profile icons fetcher)"}
+
+TIMEOUT = 30  # 单次下载超时（秒）
+RETRIES = 4  # 下载失败时的重试次数（指数退避）
 
 DV = "https://raw.githubusercontent.com/devicons/devicon/master/icons"
 LOBE = "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons"
@@ -60,10 +74,10 @@ PLAIN: dict[str, str] = {
     "jj.svg": "https://raw.githubusercontent.com/jj-vcs/jj/main/docs/images/jj-logo.svg",
     "rclone.svg": "https://raw.githubusercontent.com/rclone/rclone/master/graphics/logo/svg/logo_symbol_color.svg",
     "context7.svg": "https://raw.githubusercontent.com/upstash/context7/master/public/context7-icon-green.svg",
-    "pi.svg": "https://pi.dev/logo-auto.svg",
+    "pi.svg": "https://pi.dev/logo.svg",
 }
 
-# 位图图标：下载后保持纵横比缩放到指定高度（需要 Pillow，缺失则原样保存）
+# 位图图标：下载后保持纵横比缩放到指定高度
 RASTER: dict[str, tuple[str, int]] = {
     "zellij.png": (
         "https://raw.githubusercontent.com/zellij-org/zellij/main/assets/logo.png",
@@ -72,8 +86,13 @@ RASTER: dict[str, tuple[str, int]] = {
 }
 
 # 需要随主题反转的前景 fill 正则：黑系 / 白色
-FG_DARK = r"(?:black|#000000|#000|#141414|#010101|#08060d|currentColor)"
+FG_DARK = r"(?:black|#000000|#000|#141414|#010101|#08060d)"
 FG_LIGHT = r"(?:white|#ffffff|#fff)"
+
+# currentColor 继承 CSS 的 color 属性，而 <img> 内嵌渲染 SVG 时没有 color，
+# 结果固定回落到黑色（深色模式下即隐形）。它表达的是“随主题变”的意图，
+# 所以按主题反转目标处理：把 fill 属性整个删掉，交由下方 CSS 规则接管。
+FG_CURRENT = r"currentColor"
 
 # 黑色主体的单色图标 -> 改造 auto（浅黑深白）。
 # 仅用于官方未提供深色变体、且标志本身单色的情况：有官方双变体的走 MERGE（如 rust）。
@@ -136,13 +155,18 @@ LICENSES: dict[str, str] = {
 
 
 def fetch(url: str) -> bytes:
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return resp.read()
-
-
-def is_svg(name: str) -> bool:
-    return name.endswith(".svg")
+    """下载单个 URL；raw 托管偶发 5xx/超时，失败按指数退避重试。"""
+    last: Exception | None = None
+    for attempt in range(RETRIES):
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+                return resp.read()
+        except Exception as exc:  # 网络抖动：重试
+            last = exc
+            if attempt < RETRIES - 1:
+                time.sleep(2**attempt + random.random())
+    raise RuntimeError(f"下载失败（重试 {RETRIES} 次）: {url}") from last
 
 
 def to_auto_single(svg: bytes, fg: str = FG_DARK) -> bytes:
@@ -162,6 +186,11 @@ def to_auto_single(svg: bytes, fg: str = FG_DARK) -> bytes:
     # 同时把内联 style 里的黑系 fill 替换为变量。
     text = re.sub(rf'\sfill="{fg}"', "", text)
     text = re.sub(rf"fill:\s*{fg}(?=[;\"])", "fill:var(--icon-fg)", text)
+    # currentColor 同样表达“随主题变”，但不能直接填成 var(--icon-fg)：
+    # 它是给 CSS color 用的关键字，填进 fill 会被解析成颜色名。
+    # 删掉 fill 属性，让上面的 :not([fill]) 规则接管即可。
+    text = re.sub(rf'\sfill="{FG_CURRENT}"', "", text)
+    text = re.sub(rf"fill:\s*{FG_CURRENT}(?=[;\"])", "fill:var(--icon-fg)", text)
     if "<style>" not in text:
         text = re.sub(r"(<svg[^>]*>)", rf"\1{style}", text, count=1)
     else:
@@ -241,13 +270,7 @@ def fill_summary(svg: bytes) -> list[str]:
 
 
 def shrink_png(data: bytes, target_h: int) -> bytes:
-    """保持纵横比缩放到指定高度；Pillow 不可用时原样返回。"""
-    try:
-        from PIL import Image
-        import io
-    except ImportError:
-        print("  [warn] Pillow 不可用，跳过缩放（uvx --with pillow python scripts/fetch_icons.py）")
-        return data
+    """保持纵横比缩放到指定高度。"""
     img = Image.open(io.BytesIO(data))
     w, h = img.size
     target_w = max(1, round(w * target_h / h))
@@ -257,40 +280,27 @@ def shrink_png(data: bytes, target_h: int) -> bytes:
     return buf.getvalue()
 
 
-def main() -> None:
-    manifest: dict[str, str] = {}
+# (目标文件名, 源 URL 列表, 已下载内容 -> 写入内容)
+IconTask = tuple[str, list[str], Callable[[list[bytes]], bytes]]
+
+
+def icon_tasks() -> list[IconTask]:
+    """把各类别展平为统一结构，供 main 顺序处理。"""
+    tasks: list[IconTask] = []
     for name, url in PLAIN.items():
-        data = fetch(url)
-        (OUT / name).write_bytes(data)
-        manifest[name] = url
-        note = ""
-        if is_svg(name):
-            note = f" | fill: {fill_summary(data)}"
-        print(f"[plain] {name}{note}")
+        tasks.append((name, [url], lambda bs: bs[0]))
     for name, url in SINGLE.items():
-        data = to_auto_single(fetch(url))
-        (OUT / name).write_bytes(data)
-        manifest[name] = url
-        print(f"[auto ] {name} <- {url}")
+        tasks.append((name, [url], lambda bs: to_auto_single(bs[0])))
     for name, url in SINGLE_WHITE.items():
-        data = to_auto_single(fetch(url), FG_LIGHT)
-        (OUT / name).write_bytes(data)
-        manifest[name] = url
-        print(f"[auto ] {name} <- {url}")
-    for name, (light_url, dark_url) in MERGE.items():
-        data = merge_auto(fetch(light_url), fetch(dark_url))
-        (OUT / name).write_bytes(data)
-        manifest[name] = f"{light_url} + {dark_url}"
-        print(f"[merge] {name} <- {light_url}")
+        tasks.append((name, [url], lambda bs: to_auto_single(bs[0], FG_LIGHT)))
+    for name, (light, dark) in MERGE.items():
+        tasks.append((name, [light, dark], lambda bs: merge_auto(bs[0], bs[1])))
     for name, (url, target_h) in RASTER.items():
-        data = shrink_png(fetch(url), target_h)
-        (OUT / name).write_bytes(data)
-        manifest[name] = url
-        print(f"[png  ] {name} <- {url}")
-    (OUT / "sources.tsv").write_text(
-        "\n".join(f"{k}\t{v}" for k, v in manifest.items()) + "\n", encoding="utf-8"
-    )
-    # NOTICE.md
+        tasks.append((name, [url], lambda bs, h=target_h: shrink_png(bs[0], h)))  # 默认参数绑定，避免闭包晚绑定循环变量
+    return tasks
+
+
+def write_notice(manifest: dict[str, str]) -> None:
     lines = [
         "# Icon Sources & Licenses",
         "",
@@ -304,15 +314,23 @@ def main() -> None:
         "| --- | --- | --- |",
     ]
     for name, url in sorted(manifest.items()):
-        repo = ""
-        for key in LICENSES:
-            if key.split("/")[-1] in url or key in url:
-                repo = key
-                break
-        if not repo:
-            repo = url.split("//")[1].split("/")[0] or url
+        repo = next((k for k in LICENSES if k in url), "")
         lines.append(f"| {name} | {url} | {LICENSES.get(repo, 'see source repo')} |")
     (OUT / "NOTICE.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def main() -> None:
+    manifest: dict[str, str] = {}
+    for name, urls, transform in icon_tasks():
+        data = transform([fetch(u) for u in urls])
+        (OUT / name).write_bytes(data)
+        manifest[name] = " + ".join(urls)
+        tag = f" | fill: {fill_summary(data)}" if name.endswith(".svg") else ""
+        print(f"{name:16} <- {urls[0]}{' +1' if len(urls) > 1 else ''}{tag}")
+    (OUT / "sources.tsv").write_text(
+        "\n".join(f"{k}\t{v}" for k, v in manifest.items()) + "\n", encoding="utf-8"
+    )
+    write_notice(manifest)
     print(f"\n共 {len(manifest)} 个图标 -> {OUT}")
 
 
