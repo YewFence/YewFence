@@ -12,7 +12,7 @@
 
 **A beginner & a college student**, exploring whatever catches my curiosity:
 - 💻 **Linux user** — open source is the way
-- 🔗 **Amateur ops** — finding needles in log haystacks: `gcx logs query '{service_name="Traefik"} | rg Error | sort | tail -15`
+- 🔗 **Amateur ops** — watching dashboards settle into quiet flatlines; no alert is the best alert
 - ⌨️ **Terminal enthusiast** — a believer in the Unix philosophy: do one thing, and do it well
 - ⌛ **Vibe coding** — *“Good afternoon, Yunfeng. What can I do for you?”*
 - 🪵 **True form** — a fence of yew wood: can't keep curiosity out, but keeps the boundaries clear
@@ -87,7 +87,7 @@
 ---
 
 ## 🤗 Currently Tinkering
-- Thinking in [Komodo](https://komo.do/)
+- Drafting [playbooks](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_intro.html) for my machines, quietly exiting once the curtain falls; a single Git repository is a world of its own
 - Strolling through [A Tour of Go](https://go.dev/tour/)
 - Keys hang on separate hooks, privileges are given out sparingly, services get dragged in for regular check-ups, and strange traffic is guilty until proven innocent — a defense line of my own making
 - In development, [mise](https://mise.jdx.dev) puts every tool in its place; in production, [containers](https://github.com/docker/compose) draw the boundaries

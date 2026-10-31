@@ -13,7 +13,7 @@
 
 **初学者 & 大学生**，正探索着感兴趣的一切：
 - 💻 **Linux 用户** —— 开源软件是好文明
-- 🔗 **业余运维** —— 在日志里大海捞针：`gcx logs query '{service_name="Traefik"} | rg Error | sort | tail -15`
+- 🔗 **业余运维** —— 看着监控图表归于平缓，没有告警就是最好的时光
 - ⌨️ **终端爱好者** —— 信奉 Unix 哲学：做好一件事
 - ⌛ **Vibe Coding** —— *“下午好，云枫，有什么我可以帮到你的？”*
 - 🪵 **本体** —— 一道紫杉木栅栏，拦不住好奇心，但划得清边界
@@ -88,7 +88,7 @@
 ---
 
 ## 🤗 正在鼓捣
-- 像 [Komodo](https://komo.do/) 一样思考
+- 给机器们写好[剧本](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_intro.html)，演完便悄然离场；一个 Git 仓库自是一方天地
 - 跟着 [A Tour of Go](https://go.dev/tour/) 四处逛逛
 - 钥匙分开挂，权限抠着给，定期拉去做体检，陌生流量先怀疑三分 —— 自己的防线自己筑
 - 开发时 [mise](https://mise.jdx.dev) 会让每件工具各就各位，生产环境用[容器](https://github.com/docker/compose)界定边界
