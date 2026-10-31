@@ -106,3 +106,33 @@
   </a>
 </p>
 
+---
+
+## ⏱️ 编程时间
+
+<!--START_SECTION:waka-->
+**🕐 Total Coding Time**: 19 hrs 32 mins
+
+**💻 Programming Languages**:
+```text
+Other           ██████████████░░░░░░░░░░░ 59.51%  11 hrs 37 mins
+YAML            ██░░░░░░░░░░░░░░░░░░░░░░░ 11.67%  2 hrs 16 mins
+Markdown        ██░░░░░░░░░░░░░░░░░░░░░░░  9.90%  1 hr 56 mins
+Bash            █░░░░░░░░░░░░░░░░░░░░░░░░  6.24%  1 hr 13 mins
+Go              █░░░░░░░░░░░░░░░░░░░░░░░░  4.35%  51 mins
+```
+
+**🛠️ Editors**:
+```text
+Pi              ████████████████░░░░░░░░░ 66.75%
+Neovim          ██████░░░░░░░░░░░░░░░░░░░ 24.94%
+Unknown Editor  ██░░░░░░░░░░░░░░░░░░░░░░░  8.31%
+```
+
+**💻 Operating Systems**:
+```text
+Linux           █████████████████████████ 100.00%
+```
+
+<!--END_SECTION:waka-->
+

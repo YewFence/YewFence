@@ -9,3 +9,23 @@ run = "./scripts/fetch_icons.py"
 [tasks.icons-normalize]
 description = "仅归一化图标视觉尺寸（幂等，重复运行无差异）"
 run = "./scripts/normalize_icons.py"
+
+[tasks.actions-lint]
+description = "检查 GitHub Actions 工作流"
+run = "jactionlint"
+
+[tasks.actions-pin]
+description = "固定/升级 GitHub Actions 引用到完整 commit SHA"
+run = "pinact run --update"
+
+[tasks.actions-pin-check]
+description = "检查 GitHub Actions 引用是否已固定到完整 commit SHA"
+run = "pinact run --check"
+
+[tasks.waka]
+description = "拉取 WakaTime 统计并注入 README 的 waka 锚点段落"
+run = "python3 .github/scripts/waka.py README.md README.zh-CN.md"
+
+[tools]
+jactionlint = { version = "latest", workflow = "release.yaml" }
+pinact = "latest"

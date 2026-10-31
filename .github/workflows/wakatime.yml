@@ -1,0 +1,37 @@
+name: WakaTime Stats
+
+on:
+  schedule:
+    - cron: '0 16 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up mise
+        uses: jdx/mise-action@6612f0ef07ed2a736cd1e00a94a065522dd41195 # v5.2.5
+
+      - name: Update WakaTime Stats
+        env:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+        run: mise run waka
+
+      - name: Commit and push
+        run: |
+          if git diff --quiet README.md README.zh-CN.md; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "YewFence"
+          git config user.email "hello@yewfence.dev"
+          git add README.md README.zh-CN.md
+          git commit -m "chore(README): Update WakaTime stats"
+          git push
