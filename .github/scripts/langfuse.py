@@ -15,6 +15,7 @@ Uses Metrics API v2 to rank exact model names by recorded totalTokens on
 GENERATION observations over the rolling last seven days. Displays the top
 three with bars and percentages only. Shares use all generation tokens,
 including other and unknown models, so they need not add up to 100%.
+Labels are localized per README: zh-CN filenames get Chinese labels.
 """
 
 import argparse
@@ -32,6 +33,9 @@ import urllib.request
 START_MARKER = "<!--START_SECTION:langfuse-->"
 END_MARKER = "<!--END_SECTION:langfuse-->"
 BAR_LENGTH = 25
+
+AI_MODELS_LABELS = {"en": "**🤖 AI Models**", "zh-CN": "**🤖 AI 模型**"}
+NO_USAGE_MESSAGES = {"en": "No model usage recorded.", "zh-CN": "暂无模型使用记录。"}
 
 
 def fetch_metrics(base_url: str, public_key: str, secret_key: str, query: dict) -> list[dict]:
@@ -69,11 +73,11 @@ def fetch_stats(base_url: str, public_key: str, secret_key: str) -> tuple[list[d
     return models, total
 
 
-def render(models: list[dict], total: int) -> str:
+def render(models: list[dict], total: int, locale: str) -> str:
     """Render model shares of all generation tokens, including other models."""
-    parts = ["**🤖 AI Models**:\n"]
+    parts = [f"{AI_MODELS_LABELS[locale]}:\n"]
     if total == 0:
-        parts.append("No model usage recorded.\n")
+        parts.append(f"{NO_USAGE_MESSAGES[locale]}\n")
         return "\n".join(parts)
 
     rows = []
@@ -107,6 +111,10 @@ def updated_readme(path: Path, content: str) -> str:
     return f"{before}{START_MARKER}\n{content}\n{END_MARKER}{after}"
 
 
+def locale_for(path: Path) -> str:
+    return "zh-CN" if "zh-CN" in path.name else "en"
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("readmes", nargs="+", type=Path, help="README files to update")
@@ -130,8 +138,10 @@ def main() -> None:
 
     try:
         models, total = fetch_stats(args.base_url, args.public_key, args.secret_key)
-        content = render(models, total)
-        updates = [(path, updated_readme(path, content)) for path in args.readmes]
+        updates = [
+            (path, updated_readme(path, render(models, total, locale_for(path))))
+            for path in args.readmes
+        ]
         for path, updated in updates:
             if path.read_text(encoding="utf-8") == updated:
                 print(f"{path}: no changes")

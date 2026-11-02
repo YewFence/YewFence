@@ -2,7 +2,7 @@ name: Profile Stats
 
 on:
   schedule:
-    - cron: '0 16 * * *'
+    - cron: '0 16 */3 * *'
   workflow_dispatch:
 
 permissions: {}
