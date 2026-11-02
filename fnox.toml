@@ -1,0 +1,44 @@
+#:schema https://fnox.jdx.dev/schema.json
+#
+# ============ secrets 管理设计 ============
+#
+# 本文件是四个 CI secrets 的唯一事实源（source of truth）：
+#   - 明文值用 age 加密后以密文存在 [secrets] 里，随仓库提交，无需第三方服务
+#   - GitHub Actions secrets 只是推送镜像（write-only）：`fnox push` 把解密后的
+#     值写进去，GitHub 不再返回，改值后必须重新 push
+#   - workflow (.github/workflows/profile-stats.yml) 照常读 secrets.*，不感知 fnox
+#
+# 密钥链路：私钥在 .age/keys.txt（已 gitignore），解密身份由 mise.toml 的
+# FNOX_AGE_KEY_FILE={{config_root}}/.age/keys.txt 注入；recipients 是对应公钥。
+#
+# ---- 值轮转（最常用）----
+#   fnox set WAKATIME_API_KEY <新值>   # 密文原地更新，push 字段自动保留
+#   fnox push                          # 同步镜像到 GitHub Actions
+#   fnox check                         # 可选：验证全部可解密
+#
+# ---- age 密钥轮转 ----
+#   1. age-keygen -o .age/keys.new && age-keygen -y .age/keys.new  # 生成新钥、取公钥
+#   2. 下方 recipients 换成新公钥（此时旧私钥仍在 FNOX_AGE_KEY_FILE，能解旧密文）
+#   3. fnox reencrypt                 # 用旧钥解密、新钥重加密全部密文
+#   4. mise.toml 的 FNOX_AGE_KEY_FILE 改指 .age/keys.new（或替换 keys.txt）
+#   5. fnox check && rm 旧钥；值未变，无需重新 push
+#
+# 注：fnox 写命令（set/remove/reencrypt）保留注释与格式，可放心手改本文件。
+
+default_provider = "age"
+
+[providers.age]
+# age 对称加密提供者；加密用 recipients 公钥，解密用 FNOX_AGE_KEY_FILE 指向的私钥
+type = "age"
+recipients = ["age16xk3ftyrny5vccchaxxv3nhev90m76huvg4jlyz3plmx9q9r5p6qksfx6t"]
+
+[targets.gh]
+# 不写 repo = 默认取当前目录的 git 仓库（即本仓库）；依赖 gh 已登录
+type = "github-actions"
+
+[secrets]
+# 四个值均加密存档，push = ["gh"] 声明镜像目标；条目按字母序追加
+LANGFUSE_BASE_URL= { provider = "age", value = "YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAvdzJTS1BwME5CeXRqcHR1SnhDQWRtMk5tRWRjQmEwUU0xaTF6MTIyWGxvCkFrNWhvWDltMUlBV2NyL0FUNE1tdXNwNXZqSnpmOVhQYmh2dlU5WFNGR2MKLT4gVlB2c159QS1ncmVhc2UKcTJvNGhwalprVCtrdjZrcVBEWjhMMW54eWQ0dm9vZEJFS3NHbjlPcDRkVUFoN2NiSlhsYk1GWnpXYXpSWWtBNwowdWhxQ1hCcjlKempUOXZZVFhnRHhTNHJpUGcKLS0tIENDMTZNRHVKSWd5VVJiRXNhcWNKbHlIM0txb2wrOHQxTDRaQmdsMnRWNmcKs4QbQCi5D4NL0nDDcCA2LbzEzV3+cahnPZfDoXp3RXZCt/t+y4THRTPKtFsLuXeJ64cHrFSC/4S9vUpCFg==" , push = ["gh"]}
+LANGFUSE_PUBLIC_KEY= { provider = "age", value = "YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBqTndPaHltdG1GZFlqMDdxcXc4bXFZNTRKLzRLMjczSTR0ejRxU3ZEYUVZCjBQeDlYMEJ2ZVVLWk5NdTdNR3RIT1N0MnU1bE5UNHYrRUJmWis2V1RKVkUKLT4ge0c9d3wtZ3JlYXNlCnNIb0oKLS0tIHN1dklJQnp1RFVuWllGUHdVaGFUNjdGUXlMdTF3dW5WZllhWUJZb2o5Q1EKDCq6K09ihraTzu3nk+OiceFPOFtOl3Rehq7+71pM7i9YMw6cFT6alMWOQLK3YQH3ykjJHrB7efd1L8KmYTvXS+CNy8orFDf6pxk=" , push = ["gh"]}
+LANGFUSE_SECRET_KEY= { provider = "age", value = "YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBaSnFmeUV4WXNaK1pOeWt1Nlp2VHpVcW9IRjl1cTg1bXZlSnIwTVpRK0R3CnNwWHplSmtDamQrQXcvdHkvc2t0Y1FDaHZKKzFHdHZRckRJWmI5NDFLbU0KLT4gfWFRbiJKfi1ncmVhc2UKaUFCM29iNHFMMEZNUjhwc01RbGpadwotLS0ga0xsZHR0SmxJN0swUDVpeGxlRXBORUJxdWVXSFVsL2xQOGo2SmVScGEwQQr1uPuM4WZDbQ+LaOiyFQtIkNBeaQZEY9YzPfevun9xaoHavTFsISgvawzoX+uRJEZXlGH2/a0AgBRBc0KotdFoSk8Nwp/VuMP51Q==" , push = ["gh"]}
+WAKATIME_API_KEY= { provider = "age", value = "YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA3dEhKaGxyZ1RLU2V3ZWdZOHE3Ny9ydVNVZ0VNS2RSNkJxY1JycW5DZFZvCnI3VGwvK0huTFNsY1dJSUc0WTV5UkRGak5oSE5QRjZCTnFMUi9Pd0ZwNEkKLT4gSl9+ai1ncmVhc2UgMmFZIEhQViR1N0QgfnxIJEQ0VCoKNnlPWWhSQ3QyU0RCVW5YdWxuU3Y3eHdPek9GRGEwVUlJQ2NBbGRPR09tL3NoQi9Bcks2aUtWVFEyRXNoVVBpdgoKLS0tIEN3b0NnWWlqUkNtT21iN2Juc1lKUS9PeWJweHhTaDBrSWdLUjc2T2FXNVUK1hSa1hWODCdY8YYl0XHDHdnYjdzixgTfjts77K7G0MCM1CYiSnjyoHa0crwlcmHqBLFMBhyG4q17vOdSsLaM54SqxXF8p6mNzWleGgg0aWVnaR9EfuMGX/yZVryEOHwgiF9t6oDP/7Ko7wd3WxWy4pV79yoOeSIMSA==" , push = ["gh"]}

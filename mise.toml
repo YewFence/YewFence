@@ -1,3 +1,6 @@
+[env]
+FNOX_AGE_KEY_FILE = "{{config_root}}/.age/keys.txt"
+
 [tasks.icons]
 description = "下载并归一化 README 图标（fetch + normalize）"
 run = "./scripts/fetch_icons.py && ./scripts/normalize_icons.py"
@@ -31,5 +34,6 @@ description = "拉取 Langfuse 最近 7 天 token 用量前三的 AI 模型并�
 run = "python3 .github/scripts/langfuse.py README.md README.zh-CN.md"
 
 [tools]
+fnox = { version = "latest", workflow = "release.yml" }
 jactionlint = { version = "latest", workflow = "release.yaml" }
 pinact = "latest"
