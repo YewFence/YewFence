@@ -1,4 +1,4 @@
-name: WakaTime Stats
+name: Profile Stats
 
 on:
   schedule:
@@ -24,6 +24,13 @@ jobs:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
         run: mise run waka
 
+      - name: Update Langfuse Stats
+        env:
+          LANGFUSE_BASE_URL: ${{ secrets.LANGFUSE_BASE_URL }}
+          LANGFUSE_PUBLIC_KEY: ${{ secrets.LANGFUSE_PUBLIC_KEY }}
+          LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
+        run: mise run langfuse
+
       - name: Commit and push
         run: |
           if git diff --quiet README.md README.zh-CN.md; then
@@ -33,5 +40,5 @@ jobs:
           git config user.name "YewFence"
           git config user.email "hello@yewfence.dev"
           git add README.md README.zh-CN.md
-          git commit -m "chore(README): Update WakaTime stats"
+          git commit -m "chore(README): Update profile stats"
           git push

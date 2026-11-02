@@ -26,6 +26,10 @@ run = "pinact run --check"
 description = "拉取 WakaTime 统计并注入 README 的 waka 锚点段落"
 run = "python3 .github/scripts/waka.py README.md README.zh-CN.md"
 
+[tasks.langfuse]
+description = "拉取 Langfuse 最近 7 天 token 用量前三的 AI 模型并更新 README"
+run = "python3 .github/scripts/langfuse.py README.md README.zh-CN.md"
+
 [tools]
 jactionlint = { version = "latest", workflow = "release.yaml" }
 pinact = "latest"

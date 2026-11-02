@@ -107,7 +107,9 @@
 
 ---
 
-## ⏱️ Coding Time
+## 📊 Coding Insights
+
+*Last 7 Days*
 
 <!--START_SECTION:waka-->
 **🕐 Total Coding Time**: 19 hrs 32 mins
@@ -134,4 +136,15 @@ Linux           █████████████████████�
 ```
 
 <!--END_SECTION:waka-->
+
+<!--START_SECTION:langfuse-->
+**🤖 AI Models**:
+
+```text
+gpt-6.1-sol ████████████████░░░░░░░░░  67.34%
+glm-5.3     ███░░░░░░░░░░░░░░░░░░░░░░  15.99%
+k3.1-pro    ███░░░░░░░░░░░░░░░░░░░░░░  13.58%
+```
+
+<!--END_SECTION:langfuse-->
 
